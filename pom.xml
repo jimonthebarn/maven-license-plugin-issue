@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>de.jotb.playground</groupId>
+    <artifactId>maven-license-plugin-issue</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>submodule1</module>
+        <module>submodule2</module>
+    </modules>
+
+
+    <name>maven-license-plugin-issue</name>
+    <description>Project illustrating an assumed issue with the license-maven-plugin</description>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.4.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>license-maven-plugin</artifactId>
+                    <version>1.16</version>
+                    <configuration>
+                        <failOnBlacklist>true</failOnBlacklist>
+                        <includedLicenses>
+                            <includedLicense>Apache License, Version 2.0</includedLicense>
+                            <includedLicense>Apache License, version 2.0</includedLicense>
+                            <includedLicense>Apache License 2.0</includedLicense>
+                            <includedLicense>The Apache Software License, Version 2.0</includedLicense>
+                            <includedLicense>MIT License</includedLicense>
+                            <includedLicense>CDDL + GPLv2 with classpath exception</includedLicense>
+                            <includedLicense>GNU Lesser General Public License</includedLicense>
+                            <includedLicense>Eclipse Public License - v 1.0</includedLicense>
+                        </includedLicenses>
+
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>aggregate-add-third-party</id>
+                            <goals>
+                                <goal>aggregate-add-third-party</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+
+</project>
